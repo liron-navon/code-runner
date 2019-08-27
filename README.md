@@ -11,6 +11,8 @@ It will expose one route: `POST <url>/exec` which eccept two arguments, `code` a
 Currently support 4 languages: `java`, `python`, `go`, `node`
 
 Examples:
+
+**Python3**
 ```
 POST http://localhost:8080/exec
 
@@ -26,6 +28,7 @@ Response:
 }
 ```
 
+**Java**
 ```
 POST http://localhost:8080/exec
 
@@ -45,5 +48,45 @@ Request:
 Response:
 {
     "output": ["Hello, from the world of java!", "Another linefrom the world of java!"]
+}
+```
+
+**Node**
+```
+POST http://localhost:8080/exec
+
+Request:
+{
+	"code": "console.log("hello from node.js")",
+	"language": "node"
+}
+
+Response:
+{
+    "output": ["hello from node.js"]
+}
+```
+
+**Go**
+```
+POST http://localhost:8080/exec
+
+Request:
+{
+	"code": `
+    package main
+
+    import "fmt"
+
+    func main() {
+        fmt.Println("hello gophers")
+    }
+    `,
+	"language": "go"
+}
+
+Response:
+{
+    "output": ["hello gophers"]
 }
 ```
